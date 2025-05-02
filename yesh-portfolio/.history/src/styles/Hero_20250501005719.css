@@ -1,0 +1,157 @@
+.hero-section {
+  width: 100%;
+  margin-top: 100px; /* Give some space after Navbar */
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.col-1 {
+  grid-column: 1 / 2;
+}
+
+.col-2to6 {
+  grid-column: 2 / 7;
+}
+
+.col-7to11 {
+  grid-column: 7 / 12;
+}
+
+.col-12 {
+  display: none;
+}
+
+/* Left Text */
+.hero-text {
+  text-align: left;
+  font-family: "Orbitron", sans-serif;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  color: #66fcf1;
+  margin-bottom: 10px;
+}
+
+.hero-text h2 {
+  font-size: 2.5rem;
+  color: #c5c6c7;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.1rem;
+  color: #c5c6c7;
+  line-height: 1.6;
+}
+
+/* Right Images */
+.hero-image-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.astronaut-img,
+.profile-img {
+  width: 50%;
+  height: 200%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Initially hide profile image */
+.profile-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+}
+
+/* Scanner Line */
+.scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #66fcf1;
+  animation: scanDown 3s forwards;
+  z-index: 3;
+}
+
+/* Scan Animation */
+@keyframes scanDown {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  50% {
+    top: 50%;
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* Show profile image after scan */
+@keyframes revealProfile {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.hero-image-wrapper .profile-img {
+  animation: revealProfile 3s forwards;
+  animation-delay: 1.5s;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .col-2to6,
+  .col-7to11 {
+    grid-column: span 12;
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero-image-container {
+    height: 300px;
+    margin-top: 20px;
+  }
+}

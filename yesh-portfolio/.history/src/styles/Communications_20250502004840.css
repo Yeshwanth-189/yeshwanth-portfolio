@@ -1,0 +1,104 @@
+.communications-section {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 100px;
+  background-color: #0b0c10;
+  position: relative;
+}
+
+.communications-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.communications-header {
+  text-align: left;
+  font-family: "Orbitron", sans-serif;
+  color: #66fcf1;
+  font-size: 3rem;
+  margin-left: 100%;
+  margin-bottom: 20%;
+}
+
+.col-1 {
+  grid-column: 1 / 2;
+}
+
+.col-2to11 {
+  grid-column: 2 / 12;
+}
+
+.col-12 {
+  display: none;
+}
+
+/* 2x2 grid for cards */
+.communications-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.communication-card {
+  background-color: #1f2833;
+  border: 2px solid #66fcf1;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  font-family: "Orbitron", sans-serif;
+  color: #c5c6c7;
+  cursor: pointer;
+  overflow: hidden;
+  animation: pulseGlow 6s infinite;
+  box-shadow: 0 0 15px #66fcf1;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.communication-card:hover {
+  background-color: #66fcf1;
+  color: #0b0c10;
+  transform: scale(1.05);
+}
+
+/* Card Image */
+.card-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+/* Glow Animation */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px #66fcf1, 0 0 20px #66fcf1 inset;
+  }
+  50% {
+    box-shadow: 0 0 20px #45a29e, 0 0 30px #45a29e inset;
+  }
+  100% {
+    box-shadow: 0 0 10px #66fcf1, 0 0 20px #66fcf1 inset;
+  }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .communications-cards-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .communication-card {
+    min-width: 200px;
+    padding: 20px;
+  }
+
+  .card-image {
+    width: 150px;
+    height: 150px;
+  }
+}

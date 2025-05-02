@@ -1,0 +1,114 @@
+body,
+html,
+#root {
+  margin: 0;
+  padding: 0;
+  background-color: #0b0c10;
+  font-family: "Orbitron", sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  color: #c5c6c7;
+  overflow: hidden;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-final {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.crash-header {
+  color: red;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  letter-spacing: 1.5px;
+}
+
+.partner-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #66fcf1;
+  margin-bottom: 20px;
+}
+
+.heartbeat-svg {
+  width: 120px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.heartbeat-path {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: drawPulse 1.5s linear infinite;
+}
+
+@keyframes drawPulse {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  30% {
+    stroke-dashoffset: 150;
+  }
+  60% {
+    stroke-dashoffset: 50;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.partner-text {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.gathering-info {
+  color: #66fcf1;
+  font-family: "Exo 2", monospace;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #66fcf1;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 600px) {
+  .crash-header {
+    font-size: 1.8rem;
+  }
+
+  .partner-text,
+  .gathering-info {
+    font-size: 0.9rem;
+  }
+
+  .heartbeat-svg {
+    width: 90px;
+  }
+}

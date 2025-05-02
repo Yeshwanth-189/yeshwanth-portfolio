@@ -1,0 +1,262 @@
+.communications-section {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 100px;
+  background-color: #0b0c10;
+}
+
+.communications-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.col-1 {
+  grid-column: 1 / 2;
+}
+
+.col-2to11 {
+  grid-column: 2 / 12;
+}
+
+.col-12 {
+  display: none;
+}
+
+.communications-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.communication-card {
+  background-color: #1f2833;
+  border: 2px solid #66fcf1;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+  font-family: "Orbitron", sans-serif;
+  color: #c5c6c7;
+}
+
+.communication-card:hover {
+  background-color: #66fcf1;
+  color: #0b0c10;
+  transform: scale(1.05);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 12, 16, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: #1f2833;
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  color: #c5c6c7;
+  position: relative;
+  font-family: "Exo 2", sans-serif;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #66fcf1;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.communication-card:hover .card-image {
+  transform: translateY(-5px);
+}
+
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import "../styles/Communications.css";
+import workPermitImage from "../assets/work-permit.png";
+import contactImage from "../assets/Comms.png";
+import musicImage from "../assets/Music.png";
+import recommendationsImage from "../assets/Comments.png";
+
+function Communications() {
+  const [activeModal, setActiveModal] = useState(null);
+
+  const [cards, setCards] = useState([
+    {
+      id: "workPermit",
+      title: "Work Permit",
+      image: workPermitImage,
+    },
+    {
+      id: "contact",
+      title: "Contact Me",
+      image: contactImage,
+    },
+    {
+      id: "music",
+      title: "Music",
+      image: musicImage,
+    },
+    {
+      id: "recommendations",
+      title: "Recommendations",
+      image: recommendationsImage,
+    },
+  ]);
+
+  const openModal = (modalName) => {
+    setActiveModal(modalName);
+  };
+
+  const closeModal = () => {
+    setActiveModal(null);
+  };
+
+  // Rotate cards every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCards((prevCards) => {
+        const newOrder = [...prevCards];
+        const first = newOrder.shift();
+        newOrder.push(first);
+        return newOrder;
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="communications-section">
+      <div className="communications-grid">
+        <div className="col-1" />
+
+        <motion.div
+          layout
+          className="col-2to11 communications-cards"
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+        >
+          {cards.map((card) => (
+            <motion.div
+              key={card.id}
+              layout
+              className="communication-card"
+              onClick={() => openModal(card.id)}
+              whileHover={{ scale: 1.05 }}
+            >
+              <img src={card.image} alt={card.title} className="card-image" />
+              <h3>{card.title}</h3>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <div className="col-12" />
+      </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {activeModal && (
+          <motion.div
+            className="modal-overlay"
+            onClick={closeModal}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="modal-content"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+              transition={{ duration: 0.3 }}
+            >
+              <button className="close-button" onClick={closeModal}>
+                X
+              </button>
+
+              {activeModal === "workPermit" && (
+                <div>
+                  <h2>Work Permit Details</h2>
+                  <p>Your Work Permit/Visa information here.</p>
+                </div>
+              )}
+
+              {activeModal === "contact" && (
+                <div>
+                  <h2>Contact Me</h2>
+                  <p>Email: yourname@example.com</p>
+                  <p>Phone: +1 234-567-890</p>
+                </div>
+              )}
+
+              {activeModal === "music" && (
+                <div>
+                  <h2>Music</h2>
+                  <p>Show favorite music tracks, playlists, or a small music player here.</p>
+                </div>
+              )}
+
+              {activeModal === "recommendations" && (
+                <div>
+                  <h2>Recommendations</h2>
+                  <p>Colleague reviews and recommendations here.</p>
+                </div>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+}
+
+export default Communications;
+
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .communications-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+  .card-image {
+    width: 50%; /* smaller image on mobile */
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .communication-card h3 {
+    font-size: 1.2rem; /* smaller heading on mobile */
+  }
+}

@@ -1,0 +1,96 @@
+.experience-section {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 100px;
+  background-color: #0b0c10;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.col-1 {
+  grid-column: 1 / 2;
+}
+
+.col-2to11 {
+  grid-column: 2 / 12;
+}
+
+.col-12 {
+  display: none;
+}
+
+/* Carousel Styles */
+.carousel-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  position: relative;
+  scroll-behavior: smooth; /* Smooth manual scrolling */
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: scrollCarousel 60s linear infinite;
+}
+
+.carousel-wrapper:hover .carousel-track,
+.carousel-wrapper:active .carousel-track {
+  animation-play-state: paused; /* Stop the auto scroll */
+}
+
+.planet-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 50px;
+  text-align: center;
+}
+
+.planet {
+  width: auto;
+  height: auto;
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: contain;
+  animation: rotatePlanet 10s linear infinite;
+  cursor: pointer;
+}
+
+/* Scroll Animation (auto move) */
+@keyframes scrollCarousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Planet Rotation */
+@keyframes rotatePlanet {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .carousel-track {
+    animation: scrollCarousel 20s linear infinite;
+  }
+
+  .planet {
+    width: 150px;
+    height: 150px;
+  }
+}

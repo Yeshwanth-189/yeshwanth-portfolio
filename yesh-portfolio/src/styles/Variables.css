@@ -1,0 +1,15 @@
+:root {
+  --font-heading: "Orbitron", sans-serif;
+  --font-body: "Exo 2", sans-serif;
+
+  --color-background: #0b0c10;
+  --color-surface: #1f2833;
+  --color-primary: #66fcf1;
+  --color-secondary: #45a29e;
+  --color-text-primary: #c5c6c7;
+  --color-text-heading: #ffffff;
+  --color-glow: rgba(102, 252, 241, 0.6);
+
+  --radius-medium: 8px;
+  --transition-fast: 0.2s ease;
+}

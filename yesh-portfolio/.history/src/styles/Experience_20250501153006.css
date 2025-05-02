@@ -1,0 +1,75 @@
+.experience-section {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 100px; /* push below navbar */
+  background-color: #0b0c10;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.col-1 {
+  grid-column: 1 / 2;
+}
+
+.col-2to11 {
+  grid-column: 2 / 12;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Planet Item */
+.planets-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.planet-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  text-align: center;
+}
+
+.planet {
+  width: 120px;
+  height: 120px;
+  animation: rotatePlanet 10s linear infinite;
+  cursor: pointer;
+}
+
+.planet-item p {
+  font-family: "Orbitron", sans-serif;
+  color: #66fcf1;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+/* Rotation Animation */
+@keyframes rotatePlanet {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .planets-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
