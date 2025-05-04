@@ -1,0 +1,19 @@
+.profession-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-background);
+  overflow: auto;
+  position: relative;
+}
+
+/* Label for planet */
+.planet-label {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  background: var(--color-surface);
+  padding: 8px 12px;
+  border-radius: var(--radius-medium);
+  box-shadow: 0 0 8px var(--color-glow);
+  transition: all var(--transition-fast);
+  font-size: 0.9rem;
+}

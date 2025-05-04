@@ -1,0 +1,62 @@
+.profession-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-background);
+  overflow: hidden;
+  position: relative;
+}
+
+.planet-label {
+  font-family: var(--font-heading);
+  font-size: 2rem; /* 🛑 BIG Font */
+  color: var(--color-primary);
+  background-color: rgba(11, 12, 16, 0.95);
+  padding: 14px 24px;
+  border-radius: var(--radius-medium);
+  box-shadow: 0 0 15px var(--color-glow), 0 0 30px var(--color-glow);
+  white-space: nowrap;
+  animation: floatLabel 4s ease-in-out infinite, glowText 2s infinite alternate;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.95;
+}
+
+/* Glow Effect */
+@keyframes glowText {
+  0% {
+    text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary);
+  }
+  100% {
+    text-shadow: 0 0 20px var(--color-primary), 0 0 40px var(--color-primary);
+  }
+}
+
+/* Floating Animation */
+@keyframes floatLabel {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+}
+
+/* Responsive: Mobile View */
+@media screen and (max-width: 768px) {
+  .profession-wrapper {
+    height: 100vh;
+    overflow: hidden;
+  }
+  .planet-label {
+    font-size: 1.3rem;
+    padding: 10px 16px;
+  }
+}
