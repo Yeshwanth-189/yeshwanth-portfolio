@@ -1,0 +1,6 @@
+.project-section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  padding-top: 100px;
+}

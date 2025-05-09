@@ -1,0 +1,123 @@
+.projects-section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  padding: 40px 0;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.col-1,
+.col-12 {
+  display: none;
+}
+
+.col-2to11 {
+  grid-column: 2 / 12;
+}
+
+/* Tablet Frame */
+/* Tablet Frame - Fix Width and Height */
+.tablet-frame {
+  width: 100%; /* 🛠️ Full Width */
+  height: 600px;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-primary);
+  border-radius: 20px;
+  padding: 20px;
+  overflow-x: hidden;
+  position: relative;
+  box-shadow: 0 0 30px var(--color-glow);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollable Content */
+.tablet-scroll-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Project Card */
+.project-card {
+  width: 100%; /* 🛠️ Full width inside tablet */
+  min-height: 150px;
+  perspective: 1000px;
+  margin-bottom: 20px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.project-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--radius-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  box-shadow: 0 0 10px var(--color-primary);
+}
+
+.card-front h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-size: 1.5rem;
+}
+
+.card-back {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  transform: rotateY(180deg);
+  font-family: var(--font-body);
+  padding: 10px;
+}
+
+/* Scrollbar */
+.tablet-scroll-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tablet-scroll-content::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .col-2to11 {
+    grid-column: 2 / span 10;
+  }
+
+  .tablet-frame {
+    height: 400px;
+    padding: 15px;
+  }
+
+  .project-card {
+    height: 120px;
+  }
+}
