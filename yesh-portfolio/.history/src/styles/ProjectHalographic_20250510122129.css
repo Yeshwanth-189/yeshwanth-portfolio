@@ -1,0 +1,12 @@
+.project-holographic-container canvas {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+}
+
+@media screen and (max-width: 768px) {
+  .project-holographic-container canvas {
+    width: 100% !important;
+    height: 30vh !important;
+  }
+}

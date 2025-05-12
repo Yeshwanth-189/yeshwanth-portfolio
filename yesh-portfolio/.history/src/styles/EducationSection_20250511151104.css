@@ -1,0 +1,36 @@
+.edu-section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  padding: 40px 0;
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.col-1,
+.col-12 {
+  grid-column: span 1;
+}
+
+.col-2to11 {
+  grid-column: 2 / 12;
+}
+
+.edu-line {
+  position: absolute;
+  /* respect the section’s 40px vertical padding */
+  top: 40px;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+
+  background-color: var(--color-secondary);
+  box-shadow: 0 0 10px var(--color-glow);
+  border-radius: var(--radius-medium);
+}

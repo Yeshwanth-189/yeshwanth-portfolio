@@ -1,0 +1,154 @@
+import React from "react";
+import "../styles/SkillSection.css";
+import {
+  FaJava,
+  FaPython,
+  FaJs,
+  FaHtml5,
+  FaCss3Alt,
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
+  FaAws,
+  FaDocker,
+  FaDatabase,
+  FaAndroid,
+  FaMicrosoft,
+} from "react-icons/fa";
+import {
+  SiC,
+  SiCplusplus,
+  SiRedux,
+  SiBootstrap,
+  SiTailwindcss,
+  SiMongodb,
+  SiFirebase,
+  SiDotnet,
+  SiDjango,
+  SiFastapi,
+  SiMysql,
+  SiPostman,
+  SiKubernetes,
+  SiJirasoftware,
+} from "react-icons/si";
+import { SiMui } from "react-icons/si";
+import { TbBrandCSharp } from "react-icons/tb";
+import { AiOutlineAntDesign } from "react-icons/ai";
+import { SiTypescript } from "react-icons/si";
+import { PiFigmaLogoBold } from "react-icons/pi";
+import { SiVitest } from "react-icons/si";
+import { SiAxios } from "react-icons/si";
+import { SiExpress } from "react-icons/si";
+import { RiFirebaseFill } from "react-icons/ri";
+import { PiInfinity } from "react-icons/pi";
+import { GiRoundBottomFlask } from "react-icons/gi";
+import { DiVisualstudio } from "react-icons/di";
+
+const iconMap = {
+  C: <SiC />,
+  "C++": <SiCplusplus />,
+  "C#": <TbBrandCSharp />,
+  Java: <FaJava />,
+  JavaScript: <FaJs />,
+  Python: <FaPython />,
+  HTML5: <FaHtml5 />,
+  CSS3: <FaCss3Alt />,
+  ReactJS: <FaReact />,
+  ReduxSaga: <SiRedux />,
+  TypeScript: <SiTypescript />,
+  Bootstrap: <SiBootstrap />,
+  TailwindCSS: <SiTailwindcss />,
+  Figma: <PiFigmaLogoBold />,
+  MaterialUI: <SiMui />,
+  AntDesign: <AiOutlineAntDesign />,
+  Vite: <SiVitest />,
+  Axios: <SiAxios />,
+  NodeJS: <FaNodeJs />,
+  ExpressJS: <SiExpress />,
+  ".NET": <SiDotnet />,
+  Django: <SiDjango />,
+  FastAPI: <SiFastapi />,
+  MySQL: <SiMysql />,
+  MongoDB: <SiMongodb />,
+  Firebase: <RiFirebaseFill />,
+  Git: <FaGitAlt />,
+  TFS: <DiVisualstudio />,
+  "Android Studio": <FaAndroid />,
+  AWS: <FaAws />,
+  Docker: <FaDocker />,
+  Kubernetes: <SiKubernetes />,
+  "CI/CD": <PiInfinity />,
+  CloudLab: <GiRoundBottomFlask />,
+  Postman: <SiPostman />,
+  "Microsoft Office": <FaMicrosoft />,
+};
+
+const skills = [
+  {
+    title: "Programming Languages",
+    items: ["C", "C++", "C#", "Java", "JavaScript", "Python"],
+  },
+  {
+    title: "Front End",
+    items: [
+      "HTML5",
+      "CSS3",
+      "ReactJS",
+      "ReduxSaga",
+      "TypeScript",
+      "Bootstrap",
+      "TailwindCSS",
+      "Figma",
+      "MaterialUI",
+      "AntDesign",
+      "Vite",
+      "Axios",
+    ],
+  },
+  {
+    title: "Back End",
+    items: ["NodeJS", "ExpressJS", ".NET", "Django", "FastAPI"],
+  },
+  { title: "Databases", items: ["MySQL", "Firebase", "MongoDB"] },
+  {
+    title: "Cloud & DevOps",
+    items: ["CI/CD", "Kubernetes", "Docker", "AWS", "CloudLab"],
+  },
+  {
+    title: "Other Tools & Practices",
+    items: [
+      "Git",
+      "TFS",
+      "Android Studio",
+      "Agile Methodologies",
+      "Postman",
+      "Microsoft Office",
+    ],
+  },
+];
+
+export default function SkillSection() {
+  return (
+    <div className="skill-section">
+      <div className="skill-grid">
+        <div className="col-1" />
+        <div className="col-2to11-skill">
+          {skills.map((section, index) => (
+            <div key={index} className="skill-group">
+              <h2 className="skill-heading">{section.title}</h2>
+              <div className="skill-list">
+                {section.items.map((skill, i) => (
+                  <div className="skill-card" key={i}>
+                    <div className="icon">{iconMap[skill] || "🛠️"}</div>
+                    <span>{skill}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="col-12" />
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,45 @@
+.project {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  padding-top: 100px;
+}
+
+.projects-header {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 50px;
+  margin-left: 10%;
+}
+
+.typing-text-projects {
+  font-size: 3rem;
+  color: #66fcf1;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #66fcf1;
+  width: 0;
+  animation: typing-projects 2s steps(20, end) forwards,
+    blinkCursor 0.75s step-end infinite;
+}
+
+@keyframes typing-projects {
+  from {
+    width: 0;
+  }
+  to {
+    width: 6ch;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profession-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for mobile */
+  }
+
+  .project-header {
+    font-size: 2rem;
+  }
+}

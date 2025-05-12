@@ -1,0 +1,31 @@
+/* ProjectHalographic.css */
+
+:root {
+  /* your variables... */
+  --color-primary: #66fcf1;
+  --color-glow: rgba(102, 252, 241, 0.6);
+}
+
+.project-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #0b0c10;
+}
+
+/* glowing animation on planet wireframe */
+.glowing-wireframe {
+  animation: glowing 1.5s infinite alternate;
+}
+
+@keyframes glowing {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+canvas {
+  display: block;
+}

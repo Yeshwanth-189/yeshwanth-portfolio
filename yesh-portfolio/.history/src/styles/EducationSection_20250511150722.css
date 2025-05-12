@@ -1,0 +1,22 @@
+.edu-section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  padding: 40px 0;
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.col-1,
+.col-12 {
+  grid-column: span 1;
+}
+
+.col-2to11 {
+  grid-column: 2 / 12;
+}

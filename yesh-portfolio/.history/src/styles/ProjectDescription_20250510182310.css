@@ -1,0 +1,117 @@
+/* ProjectDescription.css */
+
+.project-description-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin: 2rem 0; /* space above & below entire section */
+  padding: 0 1rem; /* horizontal breathing room */
+}
+
+.project-description-grid > .carousel {
+  grid-column: 2 / 12;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 0; /* vertical padding around carousel */
+}
+
+/* Slide positioning */
+.slide {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* Slide content box */
+.slide-content {
+  background: var(--color-background);
+  padding: 2rem;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 16px rgba(0, 255, 255, 0.6);
+  max-width: 800px;
+}
+
+/* Title, tech line, bullets */
+.slide-content h2 {
+  margin-top: 0;
+}
+.tech {
+  font-weight: bold;
+  margin: 1rem 0;
+}
+.slide-content ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  padding-left: 0;
+}
+
+.highlight {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #00ffff;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  border-radius: 4px;
+  z-index: 10;
+  transition: background 0.2s;
+}
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.arrow.left {
+  left: 1rem;
+}
+.arrow.right {
+  right: 1rem;
+}
+.arrow:focus {
+  outline: none;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .project-description-grid {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 0.5rem;
+  }
+  .project-description-grid > .carousel {
+    grid-column: 1 / -1; /* full width */
+  }
+  .slide-content {
+    padding: 1rem;
+    margin: 0.5rem auto;
+    border-width: 1px;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+  }
+  .tech {
+    font-size: 0.9rem;
+    margin: 0.75rem 0;
+  }
+  .slide-content ul {
+    margin-left: 1rem;
+  }
+  .slide-content li {
+    font-size: 0.9rem;
+  }
+  .arrow {
+    font-size: 1.5rem;
+    padding: 0.25rem 0.5rem;
+  }
+}

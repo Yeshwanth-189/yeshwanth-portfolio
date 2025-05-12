@@ -1,0 +1,28 @@
+.award-section {
+  width: 100%;
+  background-color: var(--color-background);
+  padding: 40px 0;
+}
+
+.award-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1400px;
+}
+
+.col-1,
+.col-12 {
+  grid-column: span 1;
+}
+
+.col-2to11 {
+  grid-column: 2 / 12;
+}
+
+.award-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 200px);
+  gap: 1.5rem;
+  position: relative;
+}

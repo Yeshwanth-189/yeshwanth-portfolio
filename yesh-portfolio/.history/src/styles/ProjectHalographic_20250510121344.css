@@ -1,0 +1,26 @@
+.project-holographic-container canvas {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+}
+
+.holo-device {
+  position: absolute; /* pin relative to wrapper */
+  bottom: 20px; /* distance from bottom of wrapper */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px; /* adjust as you like */
+  height: 20px;
+  background-color: #001f27;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+  border-radius: 4px;
+  pointer-events: none; /* so it doesn’t block pointer on canvas */
+  z-index: 2;
+}
+
+@media screen and (max-width: 768px) {
+  .project-holographic-container canvas {
+    width: 100% !important;
+    height: 30vh !important;
+  }
+}

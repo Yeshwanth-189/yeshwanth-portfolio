@@ -1,0 +1,61 @@
+/* 1. Make the container positioned so children can be absolute */
+.project-holographic-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 2. Keep the canvas behind everything */
+.project-holographic-container canvas {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  position: relative;
+  z-index: 0;
+}
+
+/* 3. Position the device absolutely at the bottom center */
+.halo-device {
+  position: absolute;
+  bottom: 5%; /* tweak this to sit just above the bottom edge */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15%;
+  margin-top: 10%;
+  max-width: 200px;
+  height: 16px;
+  background-color: #001f27;
+  box-shadow: 0 0 24px rgba(0, 255, 255, 0.8);
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 2; /* above the beam */
+}
+
+/* 4. Draw the beam as a ::before on the device */
+.halo-device::before {
+  content: "";
+  position: absolute;
+  bottom: 100%; /* start immediately above the device */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px; /* beam thickness */
+  height: 200px; /* beam length */
+  background: linear-gradient(to top, rgba(0, 255, 255, 0.6), transparent);
+  filter: blur(12px);
+  pointer-events: none;
+  z-index: 1; /* behind the device but above the canvas */
+}
+
+/* 5. Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .project-holographic-container canvas {
+    height: 30vh;
+  }
+  .halo-device {
+    bottom: 8%;
+    width: 30%;
+  }
+  .halo-device::before {
+    height: 150px;
+    width: 15px;
+  }
+}

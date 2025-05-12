@@ -1,0 +1,49 @@
+.project-holographic-container canvas {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+}
+
+.halo-device {
+  position: absolute; /* pull it out of the document flow */
+  bottom: 5%; /* tweak to sit just above viewport bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15%;
+  max-width: 200px; /* avoid it getting too huge on large screens */
+  height: 16px;
+  background-color: #001f27;
+  box-shadow: 0 0 24px rgba(0, 255, 255, 0.8);
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 2; /* above the canvas */
+}
+
+.halo-device::before {
+  content: "";
+  position: absolute;
+  bottom: 100%; /* start right above the device */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 200px;
+  background: linear-gradient(to top, rgba(0, 255, 255, 0.6), transparent);
+  filter: blur(12px);
+  pointer-events: none;
+  z-index: 1; /* behind the device but above the canvas */
+}
+
+@media screen and (max-width: 768px) {
+  .project-holographic-container canvas {
+    width: 100% !important;
+    height: 30vh;
+  }
+  .halo-device {
+    bottom: 8%;
+    width: 30%;
+  }
+  .halo-device::before {
+    height: 150px;
+    width: 15px;
+  }
+}

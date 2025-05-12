@@ -1,0 +1,45 @@
+.project-halo-section {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-background);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  overflow: hidden;
+}
+
+.col-2to11 {
+  grid-column: 2 / 12;
+  height: 100%;
+}
+
+.hologram-text {
+  font-family: var(--font-body);
+  color: var(--color-primary);
+  background-color: rgba(102, 252, 241, 0.1);
+  padding: 10px 20px;
+  border: 1px solid var(--color-glow);
+  border-radius: var(--radius-medium);
+  box-shadow: 0 0 15px var(--color-glow);
+  font-size: 1rem;
+  animation: glowPulse 2s infinite alternate;
+  backdrop-filter: blur(3px);
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 10px var(--color-glow);
+  }
+  100% {
+    box-shadow: 0 0 25px var(--color-primary);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hologram-text {
+    font-size: 0.8rem;
+    padding: 8px 14px;
+  }
+}

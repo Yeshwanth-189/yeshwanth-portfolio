@@ -1,0 +1,32 @@
+.awards-container {
+  width: 100%;
+  padding: 2rem;
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+
+.award-card {
+  grid-column: span 2.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.award-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Responsive for Mobile: 4-column grid */
+@media (max-width: 768px) {
+  .grid-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

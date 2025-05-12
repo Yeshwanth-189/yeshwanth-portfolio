@@ -1,0 +1,64 @@
+.award-section {
+  width: 100%;
+  background-color: var(--color-background);
+  padding: 40px 0;
+}
+
+.award-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.col-1,
+.col-12 {
+  grid-column: span 1;
+}
+
+.col-2to11 {
+  grid-column: 2 / 12;
+}
+
+.award-box-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.award-box {
+  background: --var(--color-background);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-secondary);
+  box-shadow: 0 0 12px var(--color-glow);
+  font-family: var(--font-body);
+  transition: transform 0.3s ease;
+}
+
+.award-box:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .award-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .col-1,
+  .col-12 {
+    display: none;
+  }
+
+  .col-2to11 {
+    grid-column: 1 / -1;
+  }
+
+  .award-box-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

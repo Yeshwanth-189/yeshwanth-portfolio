@@ -1,0 +1,41 @@
+.award-section {
+  width: 100%;
+  background-color: var(--color-background);
+  padding: 40px 0;
+}
+
+.award-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.col-1,
+.col-12 {
+  grid-column: span 1;
+}
+
+.col-2to11 {
+  grid-column: 2 / 12;
+}
+
+.award-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 200px);
+  gap: 1.5rem;
+  position: relative;
+}
+
+.award-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 16px rgba(0, 255, 255, 0.1);
+  animation: floatCard 3s ease-in-out infinite alternate;
+}

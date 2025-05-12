@@ -1,0 +1,109 @@
+.project-halo-section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  padding: 60px 0;
+}
+
+.col-2to11 {
+  grid-column: 2 / 12;
+  height: 100%;
+}
+
+/* Ensure Canvas fills its space */
+.project-halo-section canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Floating hologram label */
+.hologram-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  text-align: center;
+  padding: 12px 20px;
+  color: var(--color-primary);
+  background-color: rgba(102, 252, 241, 0.05);
+  border: 1px solid var(--color-glow);
+  border-radius: var(--radius-medium);
+  box-shadow: 0 0 15px var(--color-glow);
+  animation: glowPulse 2.5s ease-in-out infinite alternate;
+  backdrop-filter: blur(4px);
+}
+
+/* Glowing pulse *.project-halo-section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  padding: 60px 0;
+}
+
+.col-2to11 {
+  grid-column: 2 / 12;
+  height: 100%;
+}
+
+/* Ensure Canvas fills its space */
+.project-halo-section canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Floating hologram label */
+.hologram-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  text-align: center;
+  padding: 12px 20px;
+  color: var(--color-primary);
+  background-color: rgba(102, 252, 241, 0.05);
+  border: 1px solid var(--color-glow);
+  border-radius: var(--radius-medium);
+  box-shadow: 0 0 15px var(--color-glow);
+  animation: glowPulse 2.5s ease-in-out infinite alternate;
+  backdrop-filter: blur(4px);
+}
+
+/* Glowing pulse */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 8px var(--color-glow);
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 20px var(--color-primary);
+    transform: scale(1.05);
+  }
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .hologram-text {
+    font-size: 0.8rem;
+    padding: 8px 14px;
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 8px var(--color-glow);
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 20px var(--color-primary);
+    transform: scale(1.05);
+  }
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .hologram-text {
+    font-size: 0.8rem;
+    padding: 8px 14px;
+  }
+}

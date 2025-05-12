@@ -1,0 +1,22 @@
+.project-holographic-container canvas {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+}
+
+.halo-device {
+  width: 200px;
+  height: 16px;
+  margin: 12px auto;
+  background-color: #001f27;
+  box-shadow: 0 0 24px rgba(0, 255, 255, 0.8);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .project-holographic-container canvas {
+    width: 100% !important;
+    height: 30vh;
+  }
+}

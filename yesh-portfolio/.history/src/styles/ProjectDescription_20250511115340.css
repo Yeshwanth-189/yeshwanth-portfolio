@@ -1,0 +1,123 @@
+.project-description-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin: 2rem 0;
+  padding: 0 1rem;
+}
+
+.project-description-grid > .carousel {
+  grid-column: 2 / 12;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+/* slides wrapper and slide */
+.slides-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  padding: 0 1rem;
+}
+
+/* content box */
+.slide-content {
+  background: var(--color-background);
+  padding: 2rem;
+  margin: 10% auto;
+  border-radius: 8px;
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 16px rgba(0, 255, 255, 0.6);
+  max-width: 800px;
+}
+
+.slide-content h2 {
+  margin-top: 0;
+}
+
+.highlight {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+/* arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #00ffff;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  border-radius: 4px;
+  z-index: 10;
+  transition: background 0.2s;
+}
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.arrow.left {
+  left: 1rem;
+}
+.arrow.right {
+  right: 1rem;
+}
+.arrow:focus {
+  outline: none;
+}
+
+/* sliding positions (for 7 slides) */
+.carousel.shift-0 .slides-inner {
+  transform: translateX(0%);
+}
+.carousel.shift-1 .slides-inner {
+  transform: translateX(-100%);
+}
+.carousel.shift-2 .slides-inner {
+  transform: translateX(-200%);
+}
+.carousel.shift-3 .slides-inner {
+  transform: translateX(-300%);
+}
+.carousel.shift-4 .slides-inner {
+  transform: translateX(-400%);
+}
+.carousel.shift-5 .slides-inner {
+  transform: translateX(-500%);
+}
+.carousel.shift-6 .slides-inner {
+  transform: translateX(-600%);
+}
+
+/* responsive */
+@media screen and (max-width: 768px) {
+  .project-description-grid {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 0.5rem;
+  }
+  .project-description-grid > .carousel {
+    grid-column: 1 / -1;
+  }
+  .slide-content {
+    padding: 1rem;
+    margin: 0.5rem auto;
+    border-width: 1px;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+  }
+  .slide-content ul {
+    margin-left: 1rem;
+  }
+  .slide-content li {
+    font-size: 0.9rem;
+  }
+  .arrow {
+    font-size: 1.5rem;
+    padding: 0.25rem 0.5rem;
+  }
+}

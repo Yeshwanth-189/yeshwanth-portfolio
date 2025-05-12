@@ -1,0 +1,78 @@
+.skill-rating-section {
+  width: 100%;
+  background-color: var(--color-background);
+  padding: 40px 0;
+}
+
+.rating-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.col-1,
+.col-12 {
+  grid-column: span 1;
+}
+
+.col-2to11 {
+  grid-column: 2 / 12;
+}
+
+.graph-background {
+  height: 400px;
+  background-color: var(--color-surface);
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  border: 1px solid var(--color-secondary);
+  box-shadow: inset 0 0 10px var(--color-glow);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.y-axis {
+  position: absolute;
+  top: 0;
+  left: -40px;
+  height: 100%;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  z-index: 1;
+  background: var(--color-background);
+}
+
+/* X-Axis */
+.x-axis {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  padding-top: 10px;
+}
+
+.x-label {
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  font-size: 0.7rem;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  width: 80px;
+  text-align: left;
+}

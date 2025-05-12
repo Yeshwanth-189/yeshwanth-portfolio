@@ -1,0 +1,89 @@
+/* src/components/EducationSection.css */
+
+.edu-section {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* spacers to give scrollable height */
+.edu-spacer {
+  height: 150vh;
+}
+
+/* center the track */
+.edu-track {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.edu-line {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  bottom: 5%;
+  width: 4px;
+  background: #ccc;
+  transform: translateX(-50%);
+}
+
+.edu-stop {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* planet dot */
+.edu-planet {
+  width: 16px;
+  height: 16px;
+  background: #6ba5ff;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+/* rocket emoji */
+.edu-rocket {
+  position: absolute;
+  left: 50%;
+  font-size: 1.5rem;
+  transform: translate(-50%, -50%);
+}
+
+/* star emoji */
+.edu-star {
+  font-size: 2rem;
+  transform: translateX(-50%);
+  position: relative;
+  left: 50%;
+}
+
+.edu-popup {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  pointer-events: auto;
+  /* remove hard-coded left/right here */
+}
+
+/* popups on the right */
+.edu-popup.right {
+  left: 110%;
+  right: auto;
+}
+
+/* popups on the left */
+.edu-popup.left {
+  right: 110%;
+  left: auto;
+}

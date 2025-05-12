@@ -1,0 +1,46 @@
+.project-halo-container {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-background);
+}
+
+/* Full width canvas */
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .project-halo-container {
+    padding: 10px;
+  }
+
+  canvas {
+    height: 80vh; /* Adjust canvas height for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .project-halo-container {
+    padding: 5px;
+  }
+
+  canvas {
+    height: 70vh; /* Further adjust canvas height for smaller screens */
+  }
+}
+
+h1 {
+  font-family: var(--font-heading);
+  color: var(--color-text-heading);
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Add glow effect to text */
+.glow-text {
+  text-shadow: 0 0 10px rgba(102, 252, 241, 0.6),
+    0 0 20px rgba(102, 252, 241, 0.8), 0 0 30px rgba(102, 252, 241, 1);
+  color: var(--color-text-heading);
+}
