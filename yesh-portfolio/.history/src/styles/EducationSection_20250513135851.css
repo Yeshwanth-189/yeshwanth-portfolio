@@ -1,0 +1,192 @@
+.edu-section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  padding: 40px 0;
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.col-1,
+.col-12 {
+  grid-column: span 1;
+}
+
+.col-2to11 {
+  grid-column: 2 / 12;
+}
+
+.edu-markers {
+  position: relative;
+  top: 40px;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 15%;
+  margin-top: 20%;
+}
+
+.edu-markers .marker {
+  width: 100%;
+  height: auto;
+  display: block;
+  padding-bottom: 400px;
+}
+.education-popup h3 {
+  align-items: center;
+  color: var(--color-primary);
+}
+
+.education-popup ul {
+  margin-top: 0.5rem;
+  padding-left: 1.2rem;
+  list-style-type: disc;
+  color: var(--color-text-primary);
+}
+.rocket {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: auto;
+  display: block;
+  bottom: 0; /* Will be updated by JS */
+}
+
+/* glowing vertical line base */
+.edu-line {
+  position: absolute;
+  top: 40px;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  border-radius: var(--radius-medium);
+  overflow: hidden;
+}
+
+/* glowing progress controlled via CSS variable */
+.edu-line::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--line-progress, 0%);
+  background: var(--color-secondary);
+  box-shadow: 0 0 10px var(--color-glow);
+  transition: height 0.05s linear;
+}
+.planet-with-popup {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* popup box */
+.planet-popup {
+  position: absolute;
+  top: -10%;
+  left: 110%;
+  transform: translateY(-50%);
+  background: var(--color-background);
+  padding: 2rem;
+  border-radius: 8px;
+  min-width: 150%;
+  min-height: 40%;
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 16px rgba(0, 255, 255, 0.6);
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+/* hover zoom effect */
+.planet-popup:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+.planet-popup.right {
+  left: 110%;
+  right: auto;
+}
+
+.planet-popup.left {
+  right: 110%;
+  left: auto;
+}
+@media (max-width: 768px) {
+  .edu-grid {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 1rem;
+  }
+
+  .col-1,
+  .col-12 {
+    display: none;
+  }
+
+  .col-2to11 {
+    grid-column: 1 / -1;
+  }
+
+  .edu-markers {
+    width: 80%;
+    margin-top: 10%;
+  }
+
+  .edu-markers .marker {
+    padding-bottom: 200px;
+  }
+
+  .planet-popup {
+    position: static;
+    transform: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    max-width: 90%;
+    min-height: auto;
+  }
+
+  .planet-popup.right,
+  .planet-popup.left {
+    left: auto;
+    right: auto;
+  }
+
+  .planet-popup:hover {
+    transform: scale(1.02);
+  }
+
+  .education-popup h3 {
+    font-size: 0.6rem;
+    text-align: left;
+  }
+
+  .highlight-paragraph {
+    font-size: 0.8rem;
+    text-align: left;
+    color: var(--color-primary);
+  }
+
+  .education-popup ul {
+    padding-left: 1rem;
+    font-size: 0.6rem;
+  }
+
+  .rocket {
+    width: 60%;
+  }
+
+  .edu-line {
+    width: 2px;
+  }
+}

@@ -1,0 +1,44 @@
+.skills {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  padding-top: 100px;
+}
+
+.skills-header {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 50px;
+  margin-left: 11%;
+}
+
+.typing-text-skills {
+  font-size: 3rem;
+  color: #66fcf1;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #66fcf1;
+  width: 0;
+  animation: typing-skills 2s steps(20, end) forwards,
+    blinkCursor 0.75s step-end infinite;
+}
+
+@keyframes typing-skills {
+  from {
+    width: 0;
+  }
+  to {
+    width: 4ch;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for mobile */
+  }
+  .skills-header {
+    text-align: center;
+  }
+}
