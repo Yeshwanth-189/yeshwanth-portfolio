@@ -15,11 +15,6 @@
   grid-column: 1 / 2;
 }
 
-.col-2to11-experience {
-  grid-column: 2 / 12;
-  overflow: visible;
-}
-
 .col-12 {
   display: none;
 }
@@ -42,6 +37,7 @@
   -ms-overflow-style: none; /* IE 10+ */
   width: 100%;
   position: relative;
+  grid-column: 2 / span 12;
 }
 
 /* Hide scrollbar - Chrome, Safari */

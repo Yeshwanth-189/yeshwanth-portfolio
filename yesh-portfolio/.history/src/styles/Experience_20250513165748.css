@@ -15,11 +15,6 @@
   grid-column: 1 / 2;
 }
 
-.col-2to11-experience {
-  grid-column: 2 / 12;
-  overflow: visible;
-}
-
 .col-12 {
   display: none;
 }

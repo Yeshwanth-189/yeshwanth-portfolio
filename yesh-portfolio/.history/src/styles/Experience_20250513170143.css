@@ -5,7 +5,7 @@
 }
 
 .experience-grid {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
   max-width: 1400px;
@@ -16,7 +16,6 @@
 }
 
 .col-2to11-experience {
-  grid-column: 2 / 12;
   overflow: visible;
 }
 

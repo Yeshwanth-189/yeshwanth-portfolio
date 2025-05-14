@@ -125,7 +125,6 @@ function Experience() {
             </div>
           </div>
           {/* Right Spacer */}
-          <div className="col-12" />
         </div>
       </section>
     </>

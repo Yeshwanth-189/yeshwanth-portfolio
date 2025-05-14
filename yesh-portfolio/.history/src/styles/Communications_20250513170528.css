@@ -324,8 +324,7 @@
 }
 
 .album-carousel {
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: auto;
   margin-top: 40px;
   position: relative;
 }
@@ -432,29 +431,5 @@
     font-weight: bold;
     color: #66fcf1;
     text-align: right;
-  }
-  .contact-modal {
-    background-color: #1a1f25;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px #66fcf1;
-    text-align: left;
-  }
-
-  .contact-modal h2 {
-    font-family: "Orbitron", sans-serif;
-    color: #66fcf1;
-    margin-bottom: 25px;
-    font-size: 1rem;
-  }
-
-  .contact-list {
-    list-style: none;
-    padding: 0;
-    font-family: "Exo 2", sans-serif;
-  }
-
-  .contact-list li {
-    font-size: 0.6rem;
   }
 }

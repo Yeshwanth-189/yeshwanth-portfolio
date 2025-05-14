@@ -9,15 +9,16 @@
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
   max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .col-1 {
   grid-column: 1 / 2;
 }
 
-.col-2to11-experience {
+.col-2to11 {
   grid-column: 2 / 12;
-  overflow: visible;
 }
 
 .col-12 {
@@ -35,34 +36,18 @@
 .carousel-wrapper {
   overflow-x: auto;
   overflow-y: hidden;
-  white-space: nowrap;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
   width: 100%;
   position: relative;
+  padding-bottom: 20px;
 }
 
-/* Hide scrollbar - Chrome, Safari */
-.carousel-wrapper::-webkit-scrollbar {
-  display: none;
-}
 .carousel-track {
   display: flex;
-  width: max-content;
-  gap: 40px;
-  padding: 20px;
-  animation: autoScroll 30s linear infinite;
-}
-
-@keyframes autoScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  width: fit-content;
+  background-image: url(../assets/space.png);
+  animation: scrollCarousel 60s linear infinite;
 }
 
 .planet-item {
@@ -81,62 +66,15 @@
   max-height: 300px;
   object-fit: contain;
   cursor: pointer;
-  animation: float 3s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }
 
-.planet-item:nth-child(1) .planet {
-  animation-delay: 0s;
-}
-
-.planet-item:nth-child(2) .planet {
-  animation-delay: 2s;
-}
-
-.planet-item:nth-child(3) .planet {
-  animation-delay: 4s;
-}
-
-.planet-item:nth-child(4) .planet {
-  animation-delay: 6s;
-}
-.planet-item:nth-child(5) .planet {
-  animation-delay: 8s;
-}
 .planet:hover {
   filter: drop-shadow(var(--color-primary) 0px 0px 10px);
   transition: transform 0.3s ease-in-out;
   transform: scale(1.05);
 }
-.planet-item:nth-child(1) .planet:hover {
-  filter: drop-shadow(0 0 10px #66fcf1); /* teal */
-}
-.planet-item:nth-child(2) .planet:hover {
-  filter: drop-shadow(0 0 10px #9b59b6); /* purple */
-}
-.planet-item:nth-child(3) .planet:hover {
-  filter: drop-shadow(0 0 10px rgb(77, 202, 77)); /* red */
-}
-.planet-item:nth-child(4) .planet:hover {
-  filter: drop-shadow(0 0 10px #e74c3c); /* red */
-}
-.planet-item:nth-child(5) .planet:hover {
-  filter: drop-shadow(0 0 10px #f1c40f); /* yellow */
-}
-.planet-item:nth-child(6) .planet:hover {
-  filter: drop-shadow(0 0 10px #66fcf1); /* teal */
-}
-.planet-item:nth-child(7) .planet:hover {
-  filter: drop-shadow(0 0 10px #9b59b6); /* purple */
-}
-.planet-item:nth-child(8) .planet:hover {
-  filter: drop-shadow(0 0 10px rgb(77, 202, 77)); /* red */
-}
-.planet-item:nth-child(9) .planet:hover {
-  filter: drop-shadow(0 0 10px #e74c3c); /* red */
-}
-.planet-item:nth-child(10) .planet:hover {
-  filter: drop-shadow(0 0 10px #f1c40f); /* yellow */
-}
+
 /* Text under planets */
 .planet-item p {
   font-family: "Orbitron", sans-serif;
@@ -150,7 +88,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-12px);
   }
   100% {
     transform: translateY(0);

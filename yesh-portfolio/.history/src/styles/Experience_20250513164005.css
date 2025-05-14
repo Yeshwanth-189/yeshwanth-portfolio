@@ -9,6 +9,8 @@
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
   max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .col-1 {
@@ -51,20 +53,12 @@
 .carousel-track {
   display: flex;
   width: max-content;
+  background-image: url(../assets/space.png);
+  background-repeat: repeat;
+  background-size: cover;
   gap: 40px;
   padding: 20px;
-  animation: autoScroll 30s linear infinite;
 }
-
-@keyframes autoScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
 .planet-item {
   display: flex;
   flex-direction: column;

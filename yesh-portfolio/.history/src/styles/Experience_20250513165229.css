@@ -9,6 +9,7 @@
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
   max-width: 1400px;
+  padding: 20px 20px 20px 0px;
 }
 
 .col-1 {
@@ -65,6 +66,9 @@
   }
 }
 
+.carousel-wrapper:hover .carousel-track {
+  animation-play-state: paused;
+}
 .planet-item {
   display: flex;
   flex-direction: column;

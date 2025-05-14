@@ -13,7 +13,6 @@ function Experience() {
       <section className="experience-section">
         <div className="experience-grid">
           {/* Left Spacer */}
-          <div className="col-1" />
           {/* Carousel Container */}
           <div className="col-2to11-experience">
             <div class="carousel-wrapper">

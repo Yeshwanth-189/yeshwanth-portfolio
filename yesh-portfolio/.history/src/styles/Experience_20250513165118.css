@@ -65,6 +65,9 @@
   }
 }
 
+.carousel-wrapper:hover .carousel-track {
+  animation-play-state: paused;
+}
 .planet-item {
   display: flex;
   flex-direction: column;

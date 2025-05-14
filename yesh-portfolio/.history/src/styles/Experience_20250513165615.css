@@ -16,7 +16,8 @@
 }
 
 .col-2to11-experience {
-  grid-column: 2 / 12;
+  grid-column: span 1;
+  width: 100%;
   overflow: visible;
 }
 
