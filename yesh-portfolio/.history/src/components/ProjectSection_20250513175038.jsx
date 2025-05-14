@@ -35,7 +35,7 @@ import { SiKubernetes } from "react-icons/si";
 import { FaDocker } from "react-icons/fa";
 import { SiJupyter } from "react-icons/si";
 import { SiFlask } from "react-icons/si";
-import { SiMongodb, SiDotnet, SiMysql, SiDjango } from "react-icons/si";
+import { SiMongodb, SiDotnet, SiMysql } from "react-icons/si";
 import { PiFileCSharpDuotone } from "react-icons/pi";
 
 const dummyProjects = [

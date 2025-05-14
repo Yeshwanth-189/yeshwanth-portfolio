@@ -8,7 +8,6 @@ import NIDS from "../assets/NIDS.png";
 import SnapIt from "../assets/SnapIt.png";
 import LifeCycleOfStar from "../assets/LifeCycleOfStar.png";
 import Pizza from "../assets/pizza.png";
-import Jira from "../assets/jira.png";
 import {
   FaReact,
   FaNodeJs,
@@ -35,7 +34,7 @@ import { SiKubernetes } from "react-icons/si";
 import { FaDocker } from "react-icons/fa";
 import { SiJupyter } from "react-icons/si";
 import { SiFlask } from "react-icons/si";
-import { SiMongodb, SiDotnet, SiMysql, SiDjango } from "react-icons/si";
+import { SiMongodb } from "react-icons/si";
 import { PiFileCSharpDuotone } from "react-icons/pi";
 
 const dummyProjects = [
@@ -147,7 +146,7 @@ const dummyProjects = [
       { name: "TailwindCSS", icon: <SiTailwindcss /> },
       { name: "NodeJS", icon: <FaNodeJs /> },
       { name: "Python", icon: <FaPython /> },
-      { name: "AmazonDB", icon: <FaAmazon /> },
+      { name: "Locust", icon: <FaAmazon /> },
     ],
     demo: "https://drive.google.com/file/d/1r_LE23MoYKNupS3S4YUVYmTl4QGy-1hT/view?usp=sharing",
     code: "https://github.com/Yeshwanth-189/a-i-r",
@@ -162,30 +161,14 @@ const dummyProjects = [
       { name: "HTML5", icon: <FaHtml5 /> },
       { name: "CSS3", icon: <FaCss3Alt /> },
       { name: "JavaScript", icon: <FaJsSquare /> },
-      { name: "C#", icon: <PiFileCSharpDuotone /> },
-      { name: ".NET", icon: <SiDotnet /> },
-      { name: "MySQL", icon: <SiMysql /> },
+      { name: "Flask", icon: <SiFlask /> },
+      { name: "Jupyter", icon: <SiJupyter /> },
+      { name: "Python", icon: <FaPython /> },
     ],
     demo: "#",
     code: "https://github.com/Yeshwanth-189/Pizza-Delivery-System",
     description:
       "Developed a pizza delivery system with a user-friendly interface and real-time tracking.",
-  },
-  {
-    id: 9,
-    title: "Task Management System",
-    image: Jira,
-    skills: [
-      { name: "React", icon: <FaReact /> },
-      { name: "Figma", icon: <PiFigmaLogoBold /> },
-      { name: "JavaScript", icon: <FaJsSquare /> },
-      { name: "Django", icon: <SiDjango /> },
-      { name: "MySQL", icon: <SiMysql /> },
-    ],
-    demo: "#",
-    code: "#",
-    description:
-      "Designed a task management system with features for task assignment and progress tracking.",
   },
 ];
 

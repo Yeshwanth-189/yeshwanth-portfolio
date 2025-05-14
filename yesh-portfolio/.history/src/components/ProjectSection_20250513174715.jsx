@@ -35,7 +35,7 @@ import { SiKubernetes } from "react-icons/si";
 import { FaDocker } from "react-icons/fa";
 import { SiJupyter } from "react-icons/si";
 import { SiFlask } from "react-icons/si";
-import { SiMongodb, SiDotnet, SiMysql, SiDjango } from "react-icons/si";
+import { SiMongodb, SiDotnet, SiMysql } from "react-icons/si";
 import { PiFileCSharpDuotone } from "react-icons/pi";
 
 const dummyProjects = [
@@ -174,12 +174,13 @@ const dummyProjects = [
   {
     id: 9,
     title: "Task Management System",
-    image: Jira,
+    image: Pizza,
     skills: [
-      { name: "React", icon: <FaReact /> },
-      { name: "Figma", icon: <PiFigmaLogoBold /> },
+      { name: "HTML5", icon: <FaHtml5 /> },
+      { name: "CSS3", icon: <FaCss3Alt /> },
       { name: "JavaScript", icon: <FaJsSquare /> },
-      { name: "Django", icon: <SiDjango /> },
+      { name: "C#", icon: <PiFileCSharpDuotone /> },
+      { name: ".NET", icon: <SiDotnet /> },
       { name: "MySQL", icon: <SiMysql /> },
     ],
     demo: "#",
