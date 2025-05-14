@@ -1,0 +1,82 @@
+.landing-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+}
+
+/* Common door styles */
+.door {
+  position: absolute;
+  background: #111;
+  z-index: 10;
+  transition: transform 2.5s ease-in-out;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+/* Top Inverted Triangle */
+.door-top {
+  width: 30vw;
+  height: 30vw;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  animation: slideUp 2.5s forwards;
+}
+
+/* Left Triangle */
+.door-left {
+  width: 30vw;
+  height: 30vw;
+  bottom: 10%;
+  left: 20%;
+  transform: translateX(0);
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+  animation: slideLeftY 2.5s forwards;
+}
+
+/* Right Triangle */
+.door-right {
+  width: 30vw;
+  height: 30vw;
+  bottom: 10%;
+  right: 20%;
+  transform: translateX(0);
+  clip-path: polygon(100% 0%, 100% 100%, 0% 50%);
+  animation: slideRightY 2.5s forwards;
+}
+
+/* Animations */
+@keyframes slideUp {
+  to {
+    transform: translate(-50%, -200%);
+  }
+}
+
+@keyframes slideLeftY {
+  to {
+    transform: translateX(-200%);
+  }
+}
+
+@keyframes slideRightY {
+  to {
+    transform: translateX(200%);
+  }
+}
+
+/* Button */
+.start-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1em 2em;
+  font-size: 1.2rem;
+  background: black;
+  color: white;
+  border: 2px solid lime;
+  cursor: pointer;
+  z-index: 20;
+}

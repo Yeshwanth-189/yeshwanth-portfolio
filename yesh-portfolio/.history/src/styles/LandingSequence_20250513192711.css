@@ -1,0 +1,66 @@
+.landing-root {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Overlay that sits on top of Overview */
+.landing-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999; /* Make sure it's very high */
+  pointer-events: none; /* Prevents blocking Overview after animation if needed */
+}
+
+.start-button {
+  position: absolute;
+  z-index: 10000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 14px 28px;
+  background: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  pointer-events: auto; /* Enable click before animation starts */
+}
+
+.door {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: #111;
+  z-index: 9998;
+  transition: transform 2.5s ease-in-out;
+}
+
+.left-door {
+  left: 0;
+  transform: translateX(0);
+  animation: slideLeft 2.5s forwards;
+}
+
+.right-door {
+  right: 0;
+  transform: translateX(0);
+  animation: slideRight 2.5s forwards;
+}
+
+@keyframes slideLeft {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideRight {
+  to {
+    transform: translateX(100%);
+  }
+}

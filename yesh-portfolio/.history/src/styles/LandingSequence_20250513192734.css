@@ -1,0 +1,54 @@
+.landing-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.door {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: #111;
+  z-index: 10;
+  transition: transform 2.5s ease-in-out;
+}
+
+.left-door {
+  left: 0;
+  transform: translateX(0);
+  animation: slideLeft 2.5s forwards;
+}
+
+.right-door {
+  right: 0;
+  transform: translateX(0);
+  animation: slideRight 2.5s forwards;
+}
+
+@keyframes slideLeft {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideRight {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.start-button {
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 14px 28px;
+  background: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}

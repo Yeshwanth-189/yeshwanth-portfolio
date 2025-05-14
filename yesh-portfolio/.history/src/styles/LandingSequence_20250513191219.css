@@ -1,0 +1,47 @@
+.diagonal-lines-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+}
+
+/* Common line base */
+.line {
+  position: absolute;
+  background-color: lime;
+}
+
+/* Diagonal line 1: top-left to center */
+.line-1 {
+  width: 2px;
+  height: 100vmax; /* only top half now */
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  transform: translate(-50%, -100%) rotate(45deg);
+}
+
+/* Diagonal line 2: top-right to center */
+.line-2 {
+  width: 2px;
+  height: 100vmax; /* only top half now */
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  transform: translate(-50%, -100%) rotate(-45deg);
+}
+.vertical-line {
+  width: 2px;
+  height: 50vh;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.vertical-line {
+  width: 2px;
+  height: 50vh;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}

@@ -1,0 +1,66 @@
+import React, { useEffect, useRef } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
+import "./App.css";
+import Overview from "./components/OverView";
+import Profession from "./components/Profession";
+import Project from "./components/Project";
+import Education from "./components/Education";
+import Skills from "./components/Skills";
+import Awards from "./components/Awards";
+import Door from "./assets/Door.mp4";
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingSequence />} />
+        <Route path="/overview" element={<Overview />} />
+        <Route path="/profession" element={<Profession />} />
+        <Route path="/projects" element={<Project />} />
+        <Route path="/education" element={<Education />} />
+        <Route path="/skills" element={<Skills />} />
+        <Route path="/achievements" element={<Awards />} />
+      </Routes>
+    </Router>
+  );
+}
+
+function LandingSequence() {
+  const navigate = useNavigate();
+  const audioRef = useRef(null);
+  useEffect(() => {
+    // Play sound and navigate after delay
+    audioRef.current?.play();
+
+    const timer = setTimeout(() => {
+      navigate("/overview");
+    }, 3000); // Match your animation duration
+
+    return () => clearTimeout(timer);
+  }, [navigate]);
+
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     navigate("/overview");
+  //   }, 2000);
+
+  //   return () => clearTimeout(timer);
+  // }, [navigate]);
+
+  return (
+    <div className="landing-container">
+      <audio ref={audioRef} src={Door} />
+
+      <div className="door left-door" />
+      <div className="door right-door" />
+      </div>
+    </div>
+  );
+}
+
+export default App;

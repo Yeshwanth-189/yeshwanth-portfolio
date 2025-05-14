@@ -1,0 +1,28 @@
+.diagonal-lines-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+}
+
+/* Base line style */
+.line {
+  position: absolute;
+  width: 2px;
+  height: 200vmax; /* Very long to ensure it covers both diagonals */
+  background-color: lime;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+}
+
+/* Diagonal from top-left to bottom-right */
+.line-1 {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Diagonal from top-right to bottom-left */
+.line-2 {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}

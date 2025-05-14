@@ -1,0 +1,44 @@
+.diagonal-lines-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+}
+
+/* Base style for all lines */
+.line {
+  position: absolute;
+  background-color: lime;
+}
+
+/* Diagonal line 1: top-left to center */
+.line-1 {
+  width: 2px;
+  height: 200vmax;
+  top: 0;
+  left: 50%;
+  transform-origin: top center;
+  transform: translateX(-50%) rotate(45deg);
+  clip-path: inset(0 0 50% 0); /* hides bottom half */
+}
+
+/* Diagonal line 2: top-right to center */
+.line-2 {
+  width: 2px;
+  height: 200vmax;
+  top: 0;
+  left: 50%;
+  transform-origin: top center;
+  transform: translateX(-50%) rotate(-45deg);
+  clip-path: inset(0 0 50% 0); /* hides bottom half */
+}
+
+/* Vertical line going down from center */
+.vertical-line {
+  width: 2px;
+  height: 50vh;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}

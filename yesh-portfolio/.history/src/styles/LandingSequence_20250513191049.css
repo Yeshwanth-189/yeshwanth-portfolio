@@ -1,0 +1,35 @@
+.diagonal-lines-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+}
+
+/* Base style for both lines */
+.line {
+  position: absolute;
+  width: 2px;
+  height: 150vh; /* enough to cover corner-to-corner */
+  background-color: lime;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+}
+
+/* From top-left to bottom-right */
+.line-1 {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* From top-right to bottom-left */
+.line-2 {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.vertical-line {
+  width: 2px;
+  height: 50vh;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}

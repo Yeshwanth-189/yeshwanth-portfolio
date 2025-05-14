@@ -1,0 +1,118 @@
+.landing-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Doors always visible initially */
+.door {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: #111;
+  z-index: 10;
+  transform: translateX(0);
+  z-index: 1000; /* Initial position */
+}
+.left-door {
+  left: 0;
+}
+.right-door {
+  right: 0;
+}
+/* Animation classes applied conditionally */
+.animate-left {
+  animation: slideLeft 2.5s forwards;
+}
+
+.animate-right {
+  animation: slideRight 2.5s forwards;
+}
+
+@keyframes slideLeft {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideRight {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.start-image {
+  position: absolute;
+  z-index: 1002;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.start-image:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Optional: visually disable the image */
+.start-image.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.start-image.draw-border::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border: 2px solid rgba(0, 255, 0, 0.8);
+  animation: border-draw 1s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes border-draw {
+  0% {
+    clip-path: inset(100% 100% 100% 100%);
+    opacity: 0;
+  }
+  25% {
+    clip-path: inset(0 100% 100% 0);
+    opacity: 1;
+  }
+  50% {
+    clip-path: inset(0 0 100% 0);
+  }
+  75% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.hidden {
+  display: none;
+}
+.door {
+  transition: transform 2.5s ease-in-out;
+}
+
+@keyframes slideLeft {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideRight {
+  to {
+    transform: translateX(100%);
+  }
+}

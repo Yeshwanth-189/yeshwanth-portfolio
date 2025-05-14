@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.door-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.door {
+  position: absolute;
+  background-color: #1e1e1e;
+  border: 2px solid lime;
+  transition: transform 2s ease-in-out;
+  z-index: 10;
+}
+
+/* Door positions */
+.top-door {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40vw;
+  height: 33vh;
+}
+
+.left-door {
+  bottom: 0;
+  left: 0;
+  width: 30vw;
+  height: 67vh;
+}
+
+.right-door {
+  bottom: 0;
+  right: 0;
+  width: 30vw;
+  height: 67vh;
+}
+
+.trigger-button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1em 2em;
+  font-size: 1rem;
+  background-color: #0f0;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  z-index: 20;
+}
+
+/* Open animation classes */
+.open .top-door {
+  transform: translateX(-50%) translateY(-100%);
+}
+
+.open .left-door {
+  transform: translateX(-100%);
+}
+
+.open .right-door {
+  transform: translateX(100%);
+}

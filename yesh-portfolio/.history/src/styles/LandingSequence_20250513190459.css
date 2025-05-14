@@ -1,0 +1,27 @@
+.diagonal-lines-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+}
+
+.line {
+  position: absolute;
+  width: 2px;
+  height: 150%;
+  background-color: lime;
+  top: -25%;
+  left: 50%;
+  transform-origin: center;
+}
+
+/* Diagonal from top-left to bottom-right */
+.line-1 {
+  transform: rotate(45deg);
+}
+
+/* Diagonal from top-right to bottom-left */
+.line-2 {
+  transform: rotate(-45deg);
+}
