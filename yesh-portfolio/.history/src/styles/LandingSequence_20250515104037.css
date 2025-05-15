@@ -37,13 +37,15 @@
 
 /* Trigger animation classes */
 .animate-left {
-  transform: translateX(-100%);
-  -webkit-transform: translateX(-100%);
+  animation: slideLeft 2.5s forwards;
+  -webkit-animation: slideLeft 2.5s forwards;
+  will-change: transform;
 }
 
 .animate-right {
-  transform: translateX(100%);
-  -webkit-transform: translateX(100%);
+  animation: slideRight 2.5s forwards;
+  -webkit-animation: slideRight 2.5s forwards;
+  will-change: transform;
 }
 
 .start-image-wrapper {
@@ -115,30 +117,6 @@
   75%,
   100% {
     clip-path: inset(0 0 0 0);
-  }
-}
-
-@keyframes slideLeft {
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@-webkit-keyframes slideLeft {
-  to {
-    -webkit-transform: translateX(-100%);
-  }
-}
-
-@keyframes slideRight {
-  to {
-    transform: translateX(100%);
-  }
-}
-
-@-webkit-keyframes slideRight {
-  to {
-    -webkit-transform: translateX(100%);
   }
 }
 

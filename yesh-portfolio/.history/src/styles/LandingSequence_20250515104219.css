@@ -118,30 +118,6 @@
   }
 }
 
-@keyframes slideLeft {
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@-webkit-keyframes slideLeft {
-  to {
-    -webkit-transform: translateX(-100%);
-  }
-}
-
-@keyframes slideRight {
-  to {
-    transform: translateX(100%);
-  }
-}
-
-@-webkit-keyframes slideRight {
-  to {
-    -webkit-transform: translateX(100%);
-  }
-}
-
 .start-image.disabled {
   opacity: 0.5;
   cursor: not-allowed;
