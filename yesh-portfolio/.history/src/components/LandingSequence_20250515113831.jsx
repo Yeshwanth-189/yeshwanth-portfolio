@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import DoorSound from "../assets/Door.mp4";
+import DoorSound from "../assets/Door.mp4"; // Use .mp3 or .wav for faster decoding
 import Overview from "./OverView";
 import LeftDoorImage from "../assets/LeftDoor.png";
 import RightDoorImage from "../assets/RightDoor.png";
@@ -37,24 +37,14 @@ function LandingSequence() {
   useEffect(() => {
     const audio = audioRef.current;
     const onReady = () => setAudioReady(true);
-    if (audio) audio.addEventListener("canplaythrough", onReady);
-    return () => audio?.removeEventListener("canplaythrough", onReady);
-  }, []);
 
-  // Touchstart handler for iOS devices
-  useEffect(() => {
-    const img = document.querySelector(".start-image");
-    const handleTouch = (e) => {
-      e.preventDefault(); // Necessary for iOS
-      handleImageClick(); // Trigger same logic as onClick
-    };
-
-    if (img) {
-      img.addEventListener("touchstart", handleTouch, { passive: false });
+    if (audio) {
+      audio.addEventListener("canplaythrough", onReady);
     }
+
     return () => {
-      if (img) {
-        img.removeEventListener("touchstart", handleTouch);
+      if (audio) {
+        audio.removeEventListener("canplaythrough", onReady);
       }
     };
   }, []);
@@ -63,28 +53,28 @@ function LandingSequence() {
     setGlow(true); // Start border animation
     setTimeout(() => {
       setGlow(false);
-      handleStart(); // Call main logic after glow
-    }, 2000); // Match CSS glow duration
+      handleStart(); // Now call main logic (play audio, animate doors, etc.)
+    }, 2000); // 1s duration must match CSS animation
   };
 
   const handleStart = () => {
-    if (!audioReady) return;
+    if (!audioReady) return; // Don't proceed until audio is ready
 
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
-      audioRef.current
-        .play()
-        .catch((err) => console.log("Audio playback failed:", err));
     }
+    audioRef.current
+      ?.play()
+      .catch((err) => console.log("Playback failed:", err));
 
     requestAnimationFrame(() => {
-      setStart(true); // Apply animation classes
+      setStart(true);
     });
+    setShowOverview(true); // Start rendering overview
 
-    setShowOverview(true); // Show content after doors
     setTimeout(() => {
-      setHideDoors(true); // Hide doors after animation
-    }, 3000);
+      setHideDoors(true);
+    }, 3000); // Sync with CSS animation duration
   };
 
   return (
@@ -92,12 +82,13 @@ function LandingSequence() {
       {showOverview && <Overview />}
 
       <div className="landing-overlay">
-        <audio ref={audioRef} src={DoorSound} preload="auto" playsInline />
+        <audio ref={audioRef} src={DoorSound} preload="auto" />
 
         {!start && (
           <div
             className={`start-image-wrapper ${glow ? "draw-border" : ""}`}
             onClick={handleImageClick}
+            onTouchStart={handleStart}
           >
             <img
               src={ScanImage}
@@ -113,17 +104,9 @@ function LandingSequence() {
               <>
                 <div
                   className={`door left-door ${start ? "animate-left" : ""}`}
-                  style={{
-                    backgroundColor: "var(--color-background)",
-                    border: "2px solid var(--color-primary)",
-                  }}
                 />
                 <div
                   className={`door right-door ${start ? "animate-right" : ""}`}
-                  style={{
-                    backgroundColor: "var(--color-background)",
-                    border: "2px solid var(--color-primary)",
-                  }}
                 />
               </>
             ) : (

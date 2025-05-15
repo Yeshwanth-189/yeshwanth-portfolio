@@ -92,7 +92,13 @@ function LandingSequence() {
       {showOverview && <Overview />}
 
       <div className="landing-overlay">
-        <audio ref={audioRef} src={DoorSound} preload="auto" playsInline />
+        <audio
+          ref={audioRef}
+          src={DoorSound}
+          preload="auto"
+          muted
+          playsInline
+        />
 
         {!start && (
           <div
