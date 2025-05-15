@@ -87,21 +87,12 @@ function LandingSequence() {
           fill: "forwards",
         };
 
-        // Left door: slide left & fade out
-        leftDoorRef.current?.animate(
-          [
-            { left: "0", opacity: 1 },
-            { left: "-50vw", opacity: 0 },
-          ],
-          opts
-        );
+        // Animate left door from left: 0 to left: -50vw
+        leftDoorRef.current?.animate([{ left: "0" }, { left: "-50vw" }], opts);
 
-        // Right door: slide right & fade out
+        // Animate right door from right: 0 to right: -50vw
         rightDoorRef.current?.animate(
-          [
-            { right: "0", opacity: 1 },
-            { right: "-50vw", opacity: 0 },
-          ],
+          [{ right: "0" }, { right: "-50vw" }],
           opts
         );
 

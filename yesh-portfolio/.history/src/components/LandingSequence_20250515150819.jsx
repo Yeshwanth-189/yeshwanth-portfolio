@@ -87,21 +87,13 @@ function LandingSequence() {
           fill: "forwards",
         };
 
-        // Left door: slide left & fade out
         leftDoorRef.current?.animate(
-          [
-            { left: "0", opacity: 1 },
-            { left: "-50vw", opacity: 0 },
-          ],
+          [{ transform: "translateX(0)" }, { transform: "translateX(-100%)" }],
           opts
         );
 
-        // Right door: slide right & fade out
         rightDoorRef.current?.animate(
-          [
-            { right: "0", opacity: 1 },
-            { right: "-50vw", opacity: 0 },
-          ],
+          [{ transform: "translateX(0)" }, { transform: "translateX(100%)" }],
           opts
         );
 
@@ -157,12 +149,6 @@ function LandingSequence() {
 
         {!hideDoors && (
           <>
-            {isIPhone() ? (
-              <>
-                <div ref={leftDoorRef} className="door left-door" />
-                <div ref={rightDoorRef} className="door right-door" />
-              </>
-            ) : null}
             {isMobile ? (
               <>
                 <div

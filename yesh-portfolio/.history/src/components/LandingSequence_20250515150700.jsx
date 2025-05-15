@@ -33,8 +33,6 @@ function LandingSequence() {
   const isMobile = useIsMobile();
   const navigate = useNavigate();
   const audioRef = useRef(null);
-  const leftDoorRef = useRef(null);
-  const rightDoorRef = useRef(null);
   const [audioReady, setAudioReady] = useState(false);
   const [start, setStart] = useState(false);
   const [hideDoors, setHideDoors] = useState(false);
@@ -47,6 +45,33 @@ function LandingSequence() {
   //     navigate("/overview");
   //   }
   // }, [navigate]);
+
+  if (isIPhone()) {
+      // iPhone: run animation via JS + navigate
+
+      // Play audio
+      if (audioRef.current) {
+        audioRef.current.currentTime = 0;
+        audioRef.current.play().catch((err) => console.log("Audio failed:", err));
+      }
+
+      // Animate doors with JS
+      const opts = { duration: 2500, easing: "ease-in-out", fill: "forwards" };
+
+      leftDoorRef.current?.animate(
+        [{ transform: "translateX(0)" }, { transform: "translateX(-100%)" }],
+        opts
+      );
+
+      rightDoorRef.current?.animate(
+        [{ transform: "translateX(0)" }, { transform: "translateX(100%)" }],
+        opts
+      );
+
+      // Navigate after animation
+      setTimeout(() => {
+        navigate("/overview");
+      }, 2500);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -65,55 +90,10 @@ function LandingSequence() {
 
   const handleImageClick = () => {
     setGlow(true);
-
     setTimeout(() => {
       setGlow(false);
-
-      if (isIPhone()) {
-        // iPhone: run animation via JS + navigate
-
-        // Play audio
-        if (audioRef.current) {
-          audioRef.current.currentTime = 0;
-          audioRef.current
-            .play()
-            .catch((err) => console.log("Audio failed:", err));
-        }
-
-        // Animate doors with JS
-        const opts = {
-          duration: 2500,
-          easing: "ease-in-out",
-          fill: "forwards",
-        };
-
-        // Left door: slide left & fade out
-        leftDoorRef.current?.animate(
-          [
-            { left: "0", opacity: 1 },
-            { left: "-50vw", opacity: 0 },
-          ],
-          opts
-        );
-
-        // Right door: slide right & fade out
-        rightDoorRef.current?.animate(
-          [
-            { right: "0", opacity: 1 },
-            { right: "-50vw", opacity: 0 },
-          ],
-          opts
-        );
-
-        // Navigate after animation
-        setTimeout(() => {
-          navigate("/overview");
-        }, 2500);
-      } else {
-        // All other devices use normal CSS + state animation
-        handleStart();
-      }
-    }, 2000); // match glow animation timing
+      handleStart();
+    }, 2000);
   };
 
   const handleStart = () => {
@@ -157,12 +137,6 @@ function LandingSequence() {
 
         {!hideDoors && (
           <>
-            {isIPhone() ? (
-              <>
-                <div ref={leftDoorRef} className="door left-door" />
-                <div ref={rightDoorRef} className="door right-door" />
-              </>
-            ) : null}
             {isMobile ? (
               <>
                 <div
