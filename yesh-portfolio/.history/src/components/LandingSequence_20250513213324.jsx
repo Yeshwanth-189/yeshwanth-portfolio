@@ -55,6 +55,7 @@ function LandingSequence() {
 
     setTimeout(() => {
       setHideDoors(true);
+      navigate("/overview"); // Hide door overlays after animation
     }, 3000); // Sync with CSS animation duration
   };
 

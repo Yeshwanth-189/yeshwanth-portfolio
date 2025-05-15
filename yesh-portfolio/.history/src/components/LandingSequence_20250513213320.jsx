@@ -8,6 +8,7 @@ import "../styles/LandingSequence.css";
 import { Scan } from "lucide-react";
 
 function LandingSequence() {
+  const navigate = useNavigate();
   const isMobile = window.innerWidth <= 768;
   const audioRef = useRef(null);
   const [audioReady, setAudioReady] = useState(false);
@@ -55,6 +56,7 @@ function LandingSequence() {
 
     setTimeout(() => {
       setHideDoors(true);
+      navigate("/overview"); // Hide door overlays after animation
     }, 3000); // Sync with CSS animation duration
   };
 

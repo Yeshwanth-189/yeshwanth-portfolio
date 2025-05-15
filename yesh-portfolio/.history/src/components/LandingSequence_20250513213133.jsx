@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import DoorSound from "../assets/Door.mp4"; // Use .mp3 or .wav for faster decoding
 import Overview from "./OverView";
 import LeftDoorImage from "../assets/LeftDoor.png";
@@ -8,6 +10,7 @@ import "../styles/LandingSequence.css";
 import { Scan } from "lucide-react";
 
 function LandingSequence() {
+  const navigate = useNavigate();
   const isMobile = window.innerWidth <= 768;
   const audioRef = useRef(null);
   const [audioReady, setAudioReady] = useState(false);
@@ -55,6 +58,7 @@ function LandingSequence() {
 
     setTimeout(() => {
       setHideDoors(true);
+      navigate("/overview"); // Hide door overlays after animation
     }, 3000); // Sync with CSS animation duration
   };
 

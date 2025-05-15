@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import DoorSound from "../assets/Door.mp4"; // Use .mp3 or .wav for faster decoding
 import Overview from "./OverView";
 import LeftDoorImage from "../assets/LeftDoor.png";
@@ -54,7 +56,7 @@ function LandingSequence() {
     setShowOverview(true); // Start rendering overview
 
     setTimeout(() => {
-      setHideDoors(true);
+      setHideDoors(true); // Hide door overlays after animation
     }, 3000); // Sync with CSS animation duration
   };
 
