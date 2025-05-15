@@ -31,6 +31,7 @@
   }
   100% {
     transform: translateX(-100%);
+    opacity: 0;
   }
 }
 @keyframes doorRightOut {
@@ -40,6 +41,7 @@
   }
   100% {
     transform: translateX(100%);
+    opacity: 0;
   }
 }
 

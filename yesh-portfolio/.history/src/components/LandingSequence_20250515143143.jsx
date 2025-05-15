@@ -125,7 +125,7 @@ function LandingSequence() {
                 <img
                   src={RightDoorImage}
                   alt="Right Door"
-                  className="door right-door"
+                  className="door left-door"
                 />
               </>
             )}

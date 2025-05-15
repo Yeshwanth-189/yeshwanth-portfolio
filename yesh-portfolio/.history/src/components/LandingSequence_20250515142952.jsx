@@ -120,12 +120,12 @@ function LandingSequence() {
                 <img
                   src={LeftDoorImage}
                   alt="Left Door"
-                  className="door left-door"
+                  className={`door left-door ${start ? "animate-left" : ""}`}
                 />
                 <img
                   src={RightDoorImage}
                   alt="Right Door"
-                  className="door right-door"
+                  className={`door right-door ${start ? "animate-right" : ""}`}
                 />
               </>
             )}
