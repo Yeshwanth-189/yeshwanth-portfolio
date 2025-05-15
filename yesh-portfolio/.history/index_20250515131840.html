@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+  }
+  #door {
+    position: fixed; /* simplest layout */
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 100vh;
+    background: #2196f3;
+    transition: transform 1s ease; /* <-- only prop */
+    transform: translate3d(0, 0, 0); /* base state */
+  }
+  .open {
+    transform: translate3d(-100%, 0, 0);
+  } /* end state */
+</style>
+<div id="door"></div>
+<script>
+  document.addEventListener("click", () => door.classList.toggle("open"));
+</script>

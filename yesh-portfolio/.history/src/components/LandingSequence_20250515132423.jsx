@@ -27,10 +27,10 @@ function useIsMobile() {
 function LandingSequence() {
   const isMobile = useIsMobile();
   const audioRef = useRef(null);
-  const leftDoorRef = useRef(null);
+  const leftDoorRef = useRef(null); // ← NEW
   const rightDoorRef = useRef(null);
   const [audioReady, setAudioReady] = useState(false);
-  const [start, setStart] = useState(false);
+  //const [start, setStart] = useState(false);
   const [hideDoors, setHideDoors] = useState(false);
   const [showOverview, setShowOverview] = useState(false);
   const [glow, setGlow] = useState(false);
@@ -79,17 +79,11 @@ function LandingSequence() {
         .catch((err) => console.log("Audio playback failed:", err));
     }
 
-    const opts = { duration: 2500, easing: "ease-in-out", fill: "forwards" };
+    requestAnimationFrame(() => {
+      leftDoorRef.current?.classList.add("open");
+      rightDoorRef.current?.classList.add("open");
+    });
 
-    leftDoorRef.current?.animate(
-      [{ transform: "translateX(0)" }, { transform: "translateX(-100%)" }],
-      opts
-    );
-    rightDoorRef.current?.animate(
-      [{ transform: "translateX(0)" }, { transform: "translateX(100%)" }],
-      opts
-    );
-    setStart(true);
     setShowOverview(true); // Show content after doors
     setTimeout(() => {
       setHideDoors(true); // Hide doors after animation
@@ -120,8 +114,20 @@ function LandingSequence() {
           <>
             {isMobile ? (
               <>
-                <div ref={leftDoorRef} className="door left-door" />
-                <div ref={rightDoorRef} className="door right-door" />
+                <div
+                  className={`door left-door ${start ? "animate-left" : ""}`}
+                  style={{
+                    backgroundColor: "var(--color-background)",
+                    border: "2px solid var(--color-primary)",
+                  }}
+                />
+                <div
+                  className={`door right-door ${start ? "animate-right" : ""}`}
+                  style={{
+                    backgroundColor: "var(--color-background)",
+                    border: "2px solid var(--color-primary)",
+                  }}
+                />
               </>
             ) : (
               <>

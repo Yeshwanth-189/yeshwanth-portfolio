@@ -89,7 +89,7 @@ function LandingSequence() {
       [{ transform: "translateX(0)" }, { transform: "translateX(100%)" }],
       opts
     );
-    setStart(true);
+
     setShowOverview(true); // Show content after doors
     setTimeout(() => {
       setHideDoors(true); // Hide doors after animation
@@ -120,8 +120,20 @@ function LandingSequence() {
           <>
             {isMobile ? (
               <>
-                <div ref={leftDoorRef} className="door left-door" />
-                <div ref={rightDoorRef} className="door right-door" />
+                <div
+                  className={`door left-door ${start ? "animate-left" : ""}`}
+                  style={{
+                    backgroundColor: "var(--color-background)",
+                    border: "2px solid var(--color-primary)",
+                  }}
+                />
+                <div
+                  className={`door right-door ${start ? "animate-right" : ""}`}
+                  style={{
+                    backgroundColor: "var(--color-background)",
+                    border: "2px solid var(--color-primary)",
+                  }}
+                />
               </>
             ) : (
               <>

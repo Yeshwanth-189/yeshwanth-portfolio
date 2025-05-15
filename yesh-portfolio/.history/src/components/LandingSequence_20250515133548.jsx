@@ -89,7 +89,7 @@ function LandingSequence() {
       [{ transform: "translateX(0)" }, { transform: "translateX(100%)" }],
       opts
     );
-    setStart(true);
+
     setShowOverview(true); // Show content after doors
     setTimeout(() => {
       setHideDoors(true); // Hide doors after animation
