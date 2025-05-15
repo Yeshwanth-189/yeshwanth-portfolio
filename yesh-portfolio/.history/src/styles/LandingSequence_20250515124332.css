@@ -1,77 +1,85 @@
-/* ---- container ---- */
 .landing-container {
   position: relative;
   width: 100vw;
   height: 100dvh;
   overflow: hidden;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch; /* iOS smoothness */
 }
 
-/* ---- door (base) ---- */
+/* Doors initially visible */
 .door {
   position: absolute;
   top: 0;
   width: 50%;
   height: 100%;
-  background: var(--color-background); /* moved from inline */
-  border: 2px solid var(--color-primary); /* moved from inline */
+  background: #111;
   z-index: 1000;
-
-  /* --- initial transform & layer promotion --- */
-  transform: translate3d(0, 0, 0); /* GPU-promote */
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   will-change: transform;
-
-  /* --- simple, valid transition --- */
-  transition: transform 2.5s ease-in-out;
+  transition: all transform 2.5s ease-in-out;
   -webkit-transition: -webkit-transform 2.5s ease-in-out;
+  perspective: 1000;
+  -webkit-perspective: 1000;
 }
 
-/* left / right placement */
 .left-door {
   left: 0;
-  border-right: 2px solid var(--color-primary);
+  border-right: 2px solid var(--color-primary) !important;
 }
+
 .right-door {
   right: 0;
-  border-left: 2px solid var(--color-primary);
+  border-left: 2px solid var(--color-primary) !important;
 }
 
-/* ---- animation trigger classes ---- */
+/* Trigger animation classes */
 .animate-left {
-  transform: translate3d(-100%, 0, 0);
-}
-.animate-right {
-  transform: translate3d(100%, 0, 0);
+  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
 }
 
-/* ---------- scan button & glow (unchanged) ---------- */
+.animate-right {
+  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+}
+
 .start-image-wrapper {
   position: absolute;
+  z-index: 1002;
   top: 50%;
   left: 50%;
-  width: 80px;
   transform: translate(-50%, -50%);
+  width: 80px;
+  height: auto;
   border-radius: 12px;
-  z-index: 1002;
   cursor: pointer;
 }
+
 .start-image {
   width: 100%;
   height: 100%;
+  display: block;
   border-radius: 12px;
+  pointer-events: none;
 }
 
+/* Animated glow border */
 .start-image-wrapper.draw-border::after {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   border-radius: 12px;
   border: 2px solid var(--color-primary);
   box-shadow: 0 0 10px var(--color-glow), 0 0 20px var(--color-primary);
   animation: border-draw 2s ease forwards;
   -webkit-animation: border-draw 2s ease forwards;
+  pointer-events: none;
 }
 
 @keyframes border-draw {
@@ -91,16 +99,55 @@
     clip-path: inset(0 0 0 0);
   }
 }
+
 @-webkit-keyframes border-draw {
-  /* identical */
+  0% {
+    clip-path: inset(100% 100% 100% 100%);
+    opacity: 0;
+  }
+  25% {
+    clip-path: inset(0 100% 100% 0);
+    opacity: 1;
+  }
+  50% {
+    clip-path: inset(0 0 100% 0);
+  }
+  75%,
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
-/* optional disabled state */
+@keyframes slideLeft {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@-webkit-keyframes slideLeft {
+  to {
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@keyframes slideRight {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@-webkit-keyframes slideRight {
+  to {
+    -webkit-transform: translateX(100%);
+  }
+}
+
 .start-image.disabled {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
+
 .hidden {
   display: none;
 }
