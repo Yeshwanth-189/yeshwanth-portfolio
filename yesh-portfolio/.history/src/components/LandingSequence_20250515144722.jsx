@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import DoorSound from "../assets/Door.mp4";
+import DoorSound from "../assets/Door.mp4"; // Use .mp3 or .wav for faster decoding
 import Overview from "./OverView";
 import LeftDoorImage from "../assets/LeftDoor.png";
 import RightDoorImage from "../assets/RightDoor.png";
@@ -25,13 +24,8 @@ function useIsMobile() {
   return isMobile;
 }
 
-function isIPhone() {
-  return /iPhone/.test(navigator.userAgent) && !window.MSStream;
-}
-
 function LandingSequence() {
   const isMobile = useIsMobile();
-  const navigate = useNavigate();
   const audioRef = useRef(null);
   const [audioReady, setAudioReady] = useState(false);
   const [start, setStart] = useState(false);
@@ -39,13 +33,7 @@ function LandingSequence() {
   const [showOverview, setShowOverview] = useState(false);
   const [glow, setGlow] = useState(false);
 
-  // iPhone shortcut
-  useEffect(() => {
-    if (isIPhone()) {
-      navigate("/overview");
-    }
-  }, [navigate]);
-
+  // Ensure audio is loaded before allowing start
   useEffect(() => {
     const audio = audioRef.current;
     const onReady = () => setAudioReady(true);
@@ -62,30 +50,29 @@ function LandingSequence() {
   }, []);
 
   const handleImageClick = () => {
-    setGlow(true);
+    setGlow(true); // Start border animation
     setTimeout(() => {
       setGlow(false);
-      handleStart();
-    }, 2000);
+      handleStart(); // Now call main logic (play audio, animate doors, etc.)
+    }, 2000); // 1s duration must match CSS animation
   };
 
   const handleStart = () => {
-    if (!audioReady) return;
+    if (!audioReady) return; // Don't proceed until audio is ready
 
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
     }
-
     audioRef.current
       ?.play()
       .catch((err) => console.log("Playback failed:", err));
 
-    setStart(true);
-    setShowOverview(true);
+    setStart(true); // Start door animation
+    setShowOverview(true); // Start rendering overview
 
     setTimeout(() => {
       setHideDoors(true);
-    }, 3000);
+    }, 3000); // Sync with CSS animation duration
   };
 
   return (
