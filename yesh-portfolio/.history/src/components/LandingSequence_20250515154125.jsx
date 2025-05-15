@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+//import { useNavigate } from "react-router-dom";
 import DoorSound from "../assets/Door.mp4";
 import Overview from "./OverView";
 import LeftDoorImage from "../assets/LeftDoor.png";
@@ -6,7 +7,6 @@ import RightDoorImage from "../assets/RightDoor.png";
 import ScanImage from "../assets/Scan.png";
 import "../styles/LandingSequence.css";
 import { Scan } from "lucide-react";
-import IphoneDoorFallback from "../components/IphoneAnimation";
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(
@@ -31,7 +31,10 @@ function isIPhone() {
 
 function LandingSequence() {
   const isMobile = useIsMobile();
+  //const navigate = useNavigate();
   const audioRef = useRef(null);
+  const leftDoorRef = useRef(null);
+  const rightDoorRef = useRef(null);
   const [audioReady, setAudioReady] = useState(false);
   const [start, setStart] = useState(false);
   const [hideDoors, setHideDoors] = useState(false);
@@ -65,9 +68,8 @@ function LandingSequence() {
 
     setTimeout(() => {
       setGlow(false);
-      // All other devices use normal CSS + state animation
-      handleStart();
-    }, 2000); // match glow animation timing
+      handleStart(); // Only call the default animation flow
+    }, 2000);
   };
 
   const handleStart = () => {
@@ -113,7 +115,8 @@ function LandingSequence() {
           <>
             {isIPhone() ? (
               <>
-                <IphoneDoorFallback />
+                <div ref={leftDoorRef} className="door left-door" />
+                <div ref={rightDoorRef} className="door right-door" />
               </>
             ) : null}
             {isMobile ? (

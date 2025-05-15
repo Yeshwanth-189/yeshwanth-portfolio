@@ -113,7 +113,7 @@ function LandingSequence() {
           <>
             {isIPhone() ? (
               <>
-                <IphoneDoorFallback />
+                <IphoneAnimation />
               </>
             ) : null}
             {isMobile ? (

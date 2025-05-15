@@ -1,0 +1,36 @@
+/* iPhone-specific door animation */
+.iphone-door {
+  position: absolute;
+  top: 0;
+  width: 50vw;
+  height: 100vh;
+  background-color: var(--color-background, #111);
+  z-index: 1000;
+  opacity: 1;
+}
+
+/* Slide left and fade */
+.left-door.animate {
+  animation: iphone-slide-left 2.5s ease-in-out forwards;
+  left: 0;
+}
+
+/* Slide right and fade */
+.right-door.animate {
+  animation: iphone-slide-right 2.5s ease-in-out forwards;
+  right: 0;
+}
+
+@keyframes iphone-slide-left {
+  to {
+    left: -50vw;
+    opacity: 0;
+  }
+}
+
+@keyframes iphone-slide-right {
+  to {
+    right: -50vw;
+    opacity: 0;
+  }
+}

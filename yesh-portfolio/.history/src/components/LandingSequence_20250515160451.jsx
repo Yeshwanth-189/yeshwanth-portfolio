@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import DoorSound from "../assets/Door.mp4";
 import Overview from "./OverView";
 import LeftDoorImage from "../assets/LeftDoor.png";
@@ -6,7 +7,6 @@ import RightDoorImage from "../assets/RightDoor.png";
 import ScanImage from "../assets/Scan.png";
 import "../styles/LandingSequence.css";
 import { Scan } from "lucide-react";
-import IphoneDoorFallback from "../components/IphoneAnimation";
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(
@@ -113,7 +113,7 @@ function LandingSequence() {
           <>
             {isIPhone() ? (
               <>
-                <IphoneDoorFallback />
+                <IphoneAnimation />
               </>
             ) : null}
             {isMobile ? (

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import DoorSound from "../assets/Door.mp4";
 import Overview from "./OverView";
 import LeftDoorImage from "../assets/LeftDoor.png";
@@ -6,7 +7,6 @@ import RightDoorImage from "../assets/RightDoor.png";
 import ScanImage from "../assets/Scan.png";
 import "../styles/LandingSequence.css";
 import { Scan } from "lucide-react";
-import IphoneDoorFallback from "../components/IphoneAnimation";
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(
@@ -31,7 +31,10 @@ function isIPhone() {
 
 function LandingSequence() {
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
   const audioRef = useRef(null);
+  const leftDoorRef = useRef(null);
+  const rightDoorRef = useRef(null);
   const [audioReady, setAudioReady] = useState(false);
   const [start, setStart] = useState(false);
   const [hideDoors, setHideDoors] = useState(false);
@@ -65,8 +68,51 @@ function LandingSequence() {
 
     setTimeout(() => {
       setGlow(false);
-      // All other devices use normal CSS + state animation
-      handleStart();
+
+      if (isIPhone()) {
+        // iPhone: run animation via JS + navigate
+
+        // Play audio
+        if (audioRef.current) {
+          audioRef.current.currentTime = 0;
+          audioRef.current
+            .play()
+            .catch((err) => console.log("Audio failed:", err));
+        }
+
+        // Animate doors with JS
+        const opts = {
+          duration: 2500,
+          easing: "ease-in-out",
+          fill: "forwards",
+        };
+
+        // Left door: slide left & fade out
+        leftDoorRef.current?.animate(
+          [
+            { left: "0", opacity: 1 },
+            { left: "-50vw", opacity: 0 },
+          ],
+          opts
+        );
+
+        // Right door: slide right & fade out
+        rightDoorRef.current?.animate(
+          [
+            { right: "0", opacity: 1 },
+            { right: "-50vw", opacity: 0 },
+          ],
+          opts
+        );
+
+        // Navigate after animation
+        setTimeout(() => {
+          navigate("/overview");
+        }, 2500);
+      } else {
+        // All other devices use normal CSS + state animation
+        handleStart();
+      }
     }, 2000); // match glow animation timing
   };
 
@@ -113,7 +159,8 @@ function LandingSequence() {
           <>
             {isIPhone() ? (
               <>
-                <IphoneDoorFallback />
+                <div ref={leftDoorRef} className="door left-door" />
+                <div ref={rightDoorRef} className="door right-door" />
               </>
             ) : null}
             {isMobile ? (

@@ -6,7 +6,7 @@ import RightDoorImage from "../assets/RightDoor.png";
 import ScanImage from "../assets/Scan.png";
 import "../styles/LandingSequence.css";
 import { Scan } from "lucide-react";
-import IphoneDoorFallback from "../components/IphoneAnimation";
+import IphoneAnimation from "../components/IphoneAnimation";
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(
@@ -113,7 +113,7 @@ function LandingSequence() {
           <>
             {isIPhone() ? (
               <>
-                <IphoneDoorFallback />
+                <IphoneAnimation />
               </>
             ) : null}
             {isMobile ? (
