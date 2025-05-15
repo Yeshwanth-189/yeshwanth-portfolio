@@ -113,9 +113,17 @@ function LandingSequence() {
               <>
                 <div
                   className={`door left-door ${start ? "animate-left" : ""}`}
+                  style={{
+                    backgroundColor: "var(--color-background)",
+                    border: "2px solid var(--color-primary)",
+                  }}
                 />
                 <div
                   className={`door right-door ${start ? "animate-right" : ""}`}
+                  style={{
+                    backgroundColor: "var(--color-background)",
+                    border: "2px solid var(--color-primary)",
+                  }}
                 />
               </>
             ) : (
