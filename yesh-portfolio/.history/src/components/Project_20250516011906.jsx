@@ -11,7 +11,6 @@ function Project() {
       <NavBar />
       <ProjectHalographic />
       <section className="project">
-        <h1 className="projects-header typing-text-projects">Projects</h1>
         <ProjectSection />
       </section>
       <ProjectDescription />

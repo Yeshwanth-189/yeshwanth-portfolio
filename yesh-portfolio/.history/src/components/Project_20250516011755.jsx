@@ -8,12 +8,11 @@ import ProjectDescription from "./ProjectDescription";
 function Project() {
   return (
     <>
-      <NavBar />
-      <ProjectHalographic />
       <section className="project">
-        <h1 className="projects-header typing-text-projects">Projects</h1>
+        <NavBar />
         <ProjectSection />
       </section>
+      <ProjectHalographic />
       <ProjectDescription />
     </>
   );
