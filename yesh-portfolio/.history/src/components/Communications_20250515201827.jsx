@@ -65,46 +65,46 @@ function Communications() {
       <section className="communications-section">
         <div className="communications-grid">
           <div className="col-1" />
-          <div className="col-2to11-comms">
+
+          <div className="col-2to11">
             <h1 className="communications-header">Voyage</h1>
-            <div className="communications-cards-grid">
-              {cards.map((card, index) => (
-                <motion.div
-                  key={card.id}
-                  className="communication-card"
-                  layout
-                  onClick={() => openModal(card.id)}
-                  animate={{
-                    y: [0, -10, 0],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.3,
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  {card.image ? (
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      className="card-image"
-                    />
-                  ) : (
-                    <video
-                      src={Vibe}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="card-image"
-                    />
-                  )}
-                  <h3>{card.title}</h3>
-                </motion.div>
-              ))}
-            </div>
+            <div className="communications-cards-grid"></div>
+            {cards.map((card, index) => (
+              <motion.div
+                key={card.id}
+                className="communication-card"
+                layout
+                onClick={() => openModal(card.id)}
+                animate={{
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: index * 0.3,
+                }}
+                whileHover={{ scale: 1.05 }}
+              >
+                {card.image ? (
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="card-image"
+                  />
+                ) : (
+                  <video
+                    src={Vibe}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="card-image"
+                  />
+                )}
+                <h3>{card.title}</h3>
+              </motion.div>
+            ))}
           </div>
 
           <div className="col-12" />

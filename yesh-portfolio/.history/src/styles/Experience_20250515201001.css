@@ -2,6 +2,7 @@
   width: 100%;
   padding-top: 100px;
   background-color: #0b0c10;
+  min-height: 100vh;
 }
 
 .experience-grid {
@@ -9,12 +10,10 @@
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
   max-width: 1400px;
-  margin: 0 auto;
-  padding: 20px;
 }
 
 .col-1 {
-  grid-column: 1 / 2;
+  grid-column: 1 / 12;
 }
 
 .col-2to11-experience {
@@ -30,6 +29,7 @@
   text-align: left;
   font-family: "Orbitron", sans-serif;
   color: #66fcf1;
+  margin-left: 10%;
 }
 
 /* Carousel Styles */
@@ -179,5 +179,14 @@
   .planet {
     width: 150px;
     height: 150px;
+  }
+
+  .experience-header {
+    text-align: left;
+    font-family: "Orbitron", sans-serif;
+    color: #66fcf1;
+    font-size: 2rem;
+    margin-left: 25%;
+    margin-bottom: 10%;
   }
 }

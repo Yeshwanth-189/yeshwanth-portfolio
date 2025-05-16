@@ -65,9 +65,9 @@ function Communications() {
       <section className="communications-section">
         <div className="communications-grid">
           <div className="col-1" />
-          <div className="col-2to11-comms">
+          <div className="col-2to11">
             <h1 className="communications-header">Voyage</h1>
-            <div className="communications-cards-grid">
+            <div className="col-2to11communications-cards-grid">
               {cards.map((card, index) => (
                 <motion.div
                   key={card.id}

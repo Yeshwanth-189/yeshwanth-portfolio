@@ -10,6 +10,7 @@ function Overview() {
       <NavBar />
       <Hero />
       <Experience />
+      <h1 className="communications-header">Voyage</h1>
       <Communications />
     </>
   );
