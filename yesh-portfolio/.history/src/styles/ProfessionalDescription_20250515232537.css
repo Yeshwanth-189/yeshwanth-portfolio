@@ -1,0 +1,85 @@
+.professional-description-section {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 100px;
+  background-color: var(--color-background);
+}
+
+.professional-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 20px;
+}
+.professional-header {
+  text-align: left;
+  font-family: "Orbitron", sans-serif;
+  color: #66fcf1;
+  font-size: 3rem;
+}
+
+.col-1,
+.col-12 {
+  display: none;
+}
+
+.profession-expertise {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.col-2to6 {
+  grid-column: 2 / 7;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.col-7to11 {
+  grid-column: 7 / 12;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.skill-block {
+  background-color: var(--color-surface);
+  padding: 20px;
+  border-radius: var(--radius-medium);
+  box-shadow: 0 0 10px var(--color-glow);
+  transition: transform var(--transition-fast);
+}
+
+.skill-block:hover {
+  transform: translateY(-5px);
+}
+
+.skill-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.skill-description {
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Responsive for Mobile */
+@media screen and (max-width: 768px) {
+  .professional-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .col-2to6,
+  .col-7to11 {
+    grid-column: span 12;
+  }
+}

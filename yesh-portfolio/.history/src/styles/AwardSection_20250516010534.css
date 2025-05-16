@@ -1,0 +1,127 @@
+.award-section {
+  width: 100%;
+  background-color: var(--color-background);
+  padding: 40px 0;
+}
+
+.award-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.col-1,
+.col-12 {
+  grid-column: span 1;
+}
+
+.col-2to11-ach {
+  grid-column: 2 / 12;
+  display: flex;
+  flex-direction: column;
+}
+
+.award-box-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.award-box {
+  background: --var(--color-background);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-secondary);
+  box-shadow: 0 0 12px var(--color-glow);
+  font-family: var(--font-body);
+  transition: transform 0.3s ease;
+}
+
+.award-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.award-box:hover {
+  transform: scale(1.05);
+}
+
+.award-label {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  text-align: center;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Shine overlay */
+.shine {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+}
+
+/* Trigger shine on hover */
+.award-box:hover .shine {
+  animation: shineMove 1.2s ease-in-out;
+}
+
+@keyframes shineMove {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .award-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .col-1,
+  .col-12 {
+    display: none;
+  }
+
+  .col-2to11 {
+    grid-column: 1 / -1;
+  }
+
+  .award-box-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
